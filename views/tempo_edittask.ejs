@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <title>TEMPO - EDIT-TASK</title>
+		<link rel="stylesheet" type="text/css" href="/assets/style.css">
+	</head>
+	<body>
+        <div class="admin-wrapper">
+            <div class="admin-content">
+                <!-- <div class="button-group">
+                    <a href="/" class="">TODO-LIST</a>
+                </div> -->
+                <div class="content">
+                    <h2 class="page-title">Edit Task</h2>
+                    <form action="/tempo_todolist/<%= values.id %>?_method=put" method="post">
+                        <div>
+                            <label>Description</label><br>
+                                <input type="text" name="description" class="text-input" value="<%= values.description %>"><br><br>
+                        </div>
+                        <div>
+                            <label>Due Date</label><br>
+                                <input type="text" name="duedate" class="text-input" value="<%= values.duedate %>"><br><br>
+                        </div>
+                        <div>
+                            <button type="submit" class="update">Edit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
