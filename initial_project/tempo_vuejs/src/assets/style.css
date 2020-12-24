@@ -1,95 +1,112 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
-
 * {
-    padding: 0px;
-    margin: 0px;
-    box-sizing: border-box;
-    font-family: 'Poppins';
+	box-sizing: border-box;
 }
-
-body {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #d0d3d4;
+html, body {
+	height: 100%;
+	padding: 0px;
+	margin: 0px;
+	background: #f6f6f6;
+	font-family: 'Oswald', serif;
 }
-
-.button-group {
-    width: 100%;
-    margin-top: 20px;
-    align-items: center;
-    display: inline-block;
+h1, h2 {
+	font-family: 'Oswald', serif;
+	color: #000000;
+	margin: 5px;
 }
-
-button {
-    margin: 10px;
-}
-
 a {
-    color: white;
+	text-decoration: none;
+	color: inherit;
 }
 
 a:hover {
-    color: white;
-    text-decoration: none;
+	color: white;
+	text-decoration: none;
 }
 
-.todo-container {
-    width: 50%;
+.btn {
+	padding: 0.5rem 1rem;
+	background: white;
+	color: #000000;
+	border: 1px solid black;
+	border-radius: 0.25rem;
+	font-size: 1.08em;
+	font-family: 'Oswald', serif;
 }
-
-.tempo-head {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 1000px;
-    align-items: center;
+.btn-big {
+	padding: 0.7rem 1.3rem;
+	line-height: 1.3rem;
 }
-
-.add, .update{
-    background-color: royalblue;
+.btn:hover {
+	color: white !important;
+	background: #000000;
+}
+.add {
+	background-color: green;
   	border: none;
   	color: white;
-  	padding: 15px 25px;
+  	padding: 15px 32px;
   	text-align: center;
   	text-decoration: none;
   	display: inline-block;
 	font-size: 16px;
 	border-radius: 5px;
+	font-family: 'Oswald', serif;
+}
+.delete {
+	background-color: red;
+  	border: none;
+  	color: white;
+  	padding: 15px 32px;
+  	text-align: center;
+  	text-decoration: none;
+  	display: inline-block;
+  	font-size: 16px;
+  	margin: 4px 2px;
+	cursor: pointer;
+	border-radius: 5px;
+	font-family: 'Oswald', serif;
+}
+.text-input {
+	padding: 0.7rem 1rem;
+	display: block;
+	width: 100%;
+	border-radius: 5px;
+	border: 1px solid #e0e0e0;
+	outline: none;
+	color: #444;
+	line-height: 1.5rem;
+	font-size: 1.2em;
+	font-family: 'Oswald', serif;
+}
+header {
+	background: linear-gradient(to right, #ffc500, #c21500);
+	height: 66px;
+}
+header * {
+	color: white;
+}
+.admin-wrapper {
+	display: flex;
+	height: calc(100% - 66px);
+}
+.admin-wrapper .admin-content {
+	flex: 8;
+	height: 100%;
+	padding: 40px 100px 100px;
+	overflow-y: scroll;
+}
+.content {
+	width: 90%;
+	margin: 30px auto 30px;
 }
 
-.todo-list li {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 15px;
-    color: white;
-    background: #2e86c1;
-    border-radius: 5px;
-    overflow: hidden;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    box-shadow: 0px 5px 10px rgb(0,0,0,0.55);
+@media only screen and (max-width: 934px) {
+	.content {
+		width: 100%;
+	}
 }
-
-.btn-edit {
-    background-color: #2e86c1;
-    border: none;
-    color: white;
-    padding: 10px 15px;
-    font-size: 20px;
-    cursor: pointer;
-}
-
-.btn-remove {
-    background-color: #2e86c1;
-    border: none;
-    color: white;
-    padding: 10px 15px;
-    font-size: 20px;
-    cursor: pointer;
-}
-
-.img-float {
-    width: 20%;
-    height: 20%;
+@media only screen and (max-width: 770px) {
+	header {
+		position: relative;
+	}
 }
