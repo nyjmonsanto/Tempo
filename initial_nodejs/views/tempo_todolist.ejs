@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TEMPO - TODO-LIST</title>
+        <link rel="stylesheet" type="text/css" href="/assets/style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <body>
+        <div class="todo-container">
+            <div class="tempo-head">
+                
+            </div>
+            <div>
+                <ul class="todo-list">
+                    <% post.forEach((values) => { %>
+                    <li>
+                        <table style="width:100%">
+                            <head>
+                                <th>TASK DETAILS</th>
+                                <th style="width: 10%;">
+                                    <a href="/tempo_todolist/<%= values.id %>/tempo_edittask"><button class="btn-edit"><i class="fa fa-edit"></i></button></a>
+                                </th>
+                                <th>
+                                    <form action="/tempo_todolist/<%= values.id %>?_method=delete" method="post">
+                                        <button class="btn-remove"><i class="fa fa-trash"></i></button>
+                                    </form>
+                                </th>
+                            </head>
+                            <tbody>
+                                <tr>
+                                    <td>DESCRIPTION: <%= values.description %></td>
+                                </tr>
+                                <tr>
+                                    <td>DUE DATE: <%= values.duedate %></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </li>
+                    <% }); %>
+                </ul>
+            </div>
+        </div>
+        <a href="/tempo_addtask" id="fixedbutton"><img src="/assets/1.png" class="img-float"></a>
+        <script src="/assets/script.js"></script>
+    </body>
+</html>
