@@ -1,18 +1,17 @@
 <template>
     <div class="list row">
-        <div class="col-md-5">
-            <h4>Tasks List</h4>
+        <div class="col-md-6">
+            <h4>TODO LIST</h4>
             <ul class="list-group">
                 <li class="list-group-item" :class="{ active: index == currentIndex }" v-for="(task, index) in tasks" :key="index" @click="setActiveTask(task, index)">{{ task.title }}</li>
             </ul>
-            <div class="button-group">
-                <button class="btn btn-sm btn-danger" @click="removeAllTasks">Remove All</button>
-                <button class="btn btn-sm btn-success"><router-link to="/add">Add Task</router-link></button>
-            </div>
+            <br>
+            <button class="btn btn-big add"><router-link to="/add">ADD TASK</router-link></button>
+            <button class="btn btn-big delete" @click="removeAllTasks">CLEAR ALL</button>
         </div>
-        <div class="col-md-5">
+        <div class="col-md-6">
             <div v-if="currentTask">
-                <h4>Task</h4>
+                <h4>Due: {{ currentTask.duedate }} {{ currentTask.duetime }}</h4>
                 <div>
                     <label><strong>Title:</strong></label> {{ currentTask.title }}
                 </div>
@@ -22,11 +21,11 @@
                 <div>
                     <label><strong>Status:</strong></label> {{ currentTask.status ? "Done" : "Pending" }}
                 </div>
-                <button class="btn btn-warning"><router-link :to="'/tasks/' + currentTask.id">Edit</router-link></button>
+                <button class="btn btn-big"><router-link :to="'/tasks/' + currentTask.id">Edit</router-link></button>
             </div>
             <div v-else>
                 <br />
-                <p>Please click on a Task...</p>
+                <!-- <p>Please click on a Task...</p> -->
             </div>
         </div>
     </div>
@@ -87,9 +86,5 @@ export default {
         text-align: left;
         max-width: 750px;
         margin: auto;
-    }
-
-    .btn-warning {
-        margin: 0px;
     }
 </style>
