@@ -19,9 +19,6 @@ class TaskDataService {
     deleteAll() {
         return http.delete(`/tasks`);
     }
-    findByTitle(title) {
-        return http.get(`/tasks?title=${title}`);
-    }
 }
 
 export default new TaskDataService();
