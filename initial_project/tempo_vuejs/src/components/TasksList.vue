@@ -1,21 +1,16 @@
 <template>
     <div class="list row">
-        <div class="col-md-8">
-            <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Search by title" v-model="title"/>
-                <div class="input-group-append">
-                    <button class="btn btn-outline-secondary" type="button" @click="searchTitle">Search</button>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6">
+        <div class="col-md-5">
             <h4>Tasks List</h4>
             <ul class="list-group">
                 <li class="list-group-item" :class="{ active: index == currentIndex }" v-for="(task, index) in tasks" :key="index" @click="setActiveTask(task, index)">{{ task.title }}</li>
             </ul>
-            <button class="m-3 btn btn-sm btn-danger" @click="removeAllTasks">Remove All</button>
+            <div class="button-group">
+                <button class="btn btn-sm btn-danger" @click="removeAllTasks">Remove All</button>
+                <button class="btn btn-sm btn-success"><router-link to="/add">Add Task</router-link></button>
+            </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-5">
             <div v-if="currentTask">
                 <h4>Task</h4>
                 <div>
@@ -27,7 +22,7 @@
                 <div>
                     <label><strong>Status:</strong></label> {{ currentTask.status ? "Done" : "Pending" }}
                 </div>
-                <a class="badge badge-warning" :href="'/tasks/' + currentTask.id">Edit</a>
+                <button class="btn btn-warning"><router-link :to="'/tasks/' + currentTask.id">Edit</router-link></button>
             </div>
             <div v-else>
                 <br />
@@ -102,5 +97,9 @@ export default {
         text-align: left;
         max-width: 750px;
         margin: auto;
+    }
+
+    .btn-warning {
+        margin: 0px;
     }
 </style>
