@@ -10,10 +10,12 @@
                 <input type="text" class="form-control" id="description" required v-model="task.description" name="description"/>
             </div>
             <button @click="saveTask" class="btn btn-success">Submit</button>
+            <button class="btn btn-primary"><router-link to="/">Return to List</router-link></button>
         </div>
         <div v-else>
             <h4>Submitted successfully!</h4>
             <button class="btn btn-success" @click="newTask">Add</button>
+            <button class="btn btn-primary"><router-link to="/">Return to List</router-link></button>
         </div>
     </div>
 </template>
