@@ -15,11 +15,12 @@
                 {{ currentTask.status ? "Done" : "Pending" }}
             </div>
         </form>
-        <button class="badge badge-primary mr-2" v-if="currentTask.status" @click="updateStatus(false)">Undo</button>
-        <button v-else class="badge badge-primary mr-2" @click="updateStatus(true)">Done</button>
-        <button class="badge badge-danger mr-2" @click="deleteTask">Delete</button>
-        <button type="submit" class="badge badge-success" @click="updateTask">Update</button>
+        <button class="btn btn-info" v-if="currentTask.status" @click="updateStatus(false)">Change Status</button>
+        <button v-else class="btn btn-info" @click="updateStatus(true)">Change Status</button>
+        <button class="btn btn-danger" @click="deleteTask">Delete</button>
+        <button type="submit" class="btn btn-success" @click="updateTask">Update</button>
         <p>{{ message }}</p>
+        <button class="btn btn-primary"><router-link to="/">Return to List</router-link></button>
     </div>
     <div v-else>
         <br />
@@ -95,7 +96,15 @@ export default {
 
 <style>
     .edit-form {
-        max-width: 300px;
+        max-width: 350px;
         margin: auto;
+    }
+    
+    button {
+        margin: 5px;
+    }
+
+    p {
+        margin-top: 10px;
     }
 </style>
