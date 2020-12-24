@@ -1,5 +1,9 @@
 <template>
-    <div class="submit-form">
+ <div class="submit-form">
+        <div class="button-group">
+            <button class="btn btn-big"><router-link to="/">RETURN TO LIST</router-link></button>
+        </div><br>
+        <br><h4>ADD TASK</h4><br>
         <div v-if="!submitted">
             <div class="form-group">
                 <label for="title">Title</label>
@@ -9,13 +13,19 @@
                 <label for="description">Description</label>
                 <input type="text" class="form-control" id="description" required v-model="task.description" name="description"/>
             </div>
-            <button @click="saveTask" class="btn btn-success">Submit</button>
-            <button class="btn btn-primary"><router-link to="/">Return to List</router-link></button>
+            <div class="form-group">
+                <label for="duedate">Due Date</label>
+                <input type="text" class="form-control" id="duedate" required v-model="task.duedate" name="duedate"/>
+            </div>
+            <div class="form-group">
+                <label for="duetime">Due Time</label>
+                <input type="text" class="form-control" id="duetime" required v-model="task.duetime" name="duetime"/>
+            </div>
+            <button @click="saveTask" class="btn btn-big add">ADD TO LIST</button>
         </div>
         <div v-else>
-            <h4>Submitted successfully!</h4>
-            <button class="btn btn-success" @click="newTask">Add</button>
-            <button class="btn btn-primary"><router-link to="/">Return to List</router-link></button>
+            <h4>Added successfully!</h4>
+            <button class="btn btn-big add" @click="newTask">CLICK HERE TO ADD NEW TASK</button>
         </div>
     </div>
 </template>
@@ -31,6 +41,8 @@ export default {
                 id: null,
                 title: "",
                 description: "",
+                duedate: "",
+                duetime: "",
                 status: false
             },
             submitted: false
@@ -40,7 +52,9 @@ export default {
         saveTask() {
             var data = {
                 title: this.task.title,
-                description: this.task.description
+                description: this.task.description,
+                duedate: this.task.duedate,
+                duetime: this.task.duetime
             };
             
             TaskDataService.create(data)
