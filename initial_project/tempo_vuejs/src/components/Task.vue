@@ -1,30 +1,36 @@
 <template>
-    <div v-if="currentTask" class="edit-form">
-        <h4>Task</h4>
+    <div class="edit-form">
+        <div class="button-group">
+            <button class="btn btn-big"><router-link to="/">RETURN TO LIST</router-link></button>
+        </div><br>
+        <br><h4>UPDATE TASK</h4><br>
         <form>
             <div class="form-group">
                 <label for="title">Title</label>
-                <input type="text" class="form-control" id="title" v-model="currentTask.title"/>
+                <input type="text" class="input-box" id="title" v-model="currentTask.title"/>
             </div>
             <div class="form-group">
                 <label for="description">Description</label>
-                <input type="text" class="form-control" id="description" v-model="currentTask.description"/>
+                <input type="text" class="input-box" id="description" v-model="currentTask.description"/>
+            </div>
+            <div class="form-group">
+                <label for="duedate">Due Date</label>
+                <input type="text" class="input-box" id="duedate" v-model="currentTask.duedate"/>
+            </div>
+            <div class="form-group">
+                <label for="duetime">Due Time</label>
+                <input type="text" class="input-box" id="duetime" v-model="currentTask.duetime"/>
             </div>
             <div class="form-group">
                 <label><strong>Status:</strong></label>
                 {{ currentTask.status ? "Done" : "Pending" }}
             </div>
         </form>
-        <button class="btn btn-info" v-if="currentTask.status" @click="updateStatus(false)">Change Status</button>
-        <button v-else class="btn btn-info" @click="updateStatus(true)">Change Status</button>
-        <button class="btn btn-danger" @click="deleteTask">Delete</button>
-        <button type="submit" class="btn btn-success" @click="updateTask">Update</button>
+        <button class="btn btn-big change" v-if="currentTask.status" @click="updateStatus(false)">CHANGE STATUS</button>
+        <button v-else class="btn btn-big change" @click="updateStatus(true)">CHANGE STATUS</button>
+        <button class="btn btn-big" @click="deleteTask">DELETE</button>
+        <button type="submit" class="btn btn-big" @click="updateTask">UPDATE</button>
         <p>{{ message }}</p>
-        <button class="btn btn-primary"><router-link to="/">Return to List</router-link></button>
-    </div>
-    <div v-else>
-        <br />
-        <p>Please click on a Task...</p>
     </div>
 </template>
 
@@ -55,6 +61,8 @@ export default {
                 id: this.currentTask.id,
                 title: this.currentTask.title,
                 description: this.currentTask.description,
+                duedate: this.currentTask.duedate,
+                duetime: this.currentTask.duetime,
                 status: status
             };
             TaskDataService.update(this.currentTask.id, data)
@@ -96,15 +104,20 @@ export default {
 
 <style>
     .edit-form {
-        max-width: 350px;
+        max-width: 330px;
         margin: auto;
+        font-family: 'Oswald', serif;
     }
-    
-    button {
-        margin: 5px;
-    }
-
-    p {
-        margin-top: 10px;
+    .input-box{
+        padding: 0.7rem 1rem;
+        display: block;
+        width: 100%;
+        border-radius: 5px;
+        border: 1px solid #e0e0e0;
+        outline: none;
+        color: #444;
+        line-height: 1.5rem;
+        font-size: 1.2em;
+        font-family: 'Oswald', serif;
     }
 </style>
