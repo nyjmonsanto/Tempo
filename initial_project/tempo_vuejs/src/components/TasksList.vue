@@ -74,16 +74,6 @@ export default {
             .catch(e => {
                 console.log(e);
             });
-        },
-        searchTitle() {
-            TaskDataService.findByTitle(this.title)
-            .then(response => {
-                this.tasks = response.data;
-                console.log(response.data);
-            })
-            .catch(e => {
-                console.log(e);
-            });
         }
     },
     mounted() {
