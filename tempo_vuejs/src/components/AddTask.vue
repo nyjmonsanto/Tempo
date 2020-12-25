@@ -14,14 +14,14 @@
                 <input type="text" class="form-control" id="description" required v-model="task.description" name="description"/>
             </div>
             <div class="form-group">
-                <label for="duedate">Due Date</label>
-                <input type="text" class="form-control" id="duedate" required v-model="task.duedate" name="duedate"/>
+                <label for="duedate">Due Date</label><br>
+                <date-picker required v-model="task.duedate" id="duedate" class="picker" valueType="format" name="duedate"></date-picker>
             </div>
             <div class="form-group">
-                <label for="duetime">Due Time</label>
-                <input type="text" class="form-control" id="duetime" required v-model="task.duetime" name="duetime"/>
+                <label for="duetime">Due Time</label><br>
+                <vue-timepicker required v-model="task.duetime" id="duetime" class="picker" type="datetime" format="hh:mm A" name="duetime"></vue-timepicker>
             </div>
-            <button @click="saveTask" class="btn btn-big add">ADD TO LIST</button>
+            <button @click="saveTask" class="btn btn-big add" style="margin-top: 20px;">ADD TO LIST</button>
         </div>
         <div v-else>
             <h4>Added successfully!</h4>
@@ -32,9 +32,14 @@
 
 <script>
 import TaskDataService from "../services/TaskDataService";
+import VueTimepicker from 'vue2-timepicker';
+import DatePicker from 'vue2-datepicker';
+import 'vue2-datepicker/index.css';
+import 'vue2-timepicker/dist/VueTimepicker.css';
 
 export default {
     name: "add-task",
+    components: {DatePicker, VueTimepicker},
     data() {
         return {
             task: {
@@ -79,5 +84,11 @@ export default {
     .submit-form {
         max-width: 300px;
         margin: auto;
+    }
+    .picker{
+        display: block;
+        color: #444;
+        line-height: 1.5rem;
+        font-family: 'Oswald', serif;
     }
 </style>
