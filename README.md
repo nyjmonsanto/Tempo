@@ -1,5 +1,5 @@
 # Tempo
          
-initial_project - contains the final version of the Tempo project (w/ sequelize, Vue, etc.)
+Since node_modules was not committed in tempo_vuejs folder, use "npm i" to install needed dependencies
 
-since node_modules was not committed in tempo_vuejs folder, use "npm i" to install needed dependencies
+Created by: Marc Andrei A. Buhawe, Nigel L. Monsanto, Arnold Loudel M. Rejuso
