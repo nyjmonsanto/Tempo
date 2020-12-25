@@ -25,7 +25,6 @@
         </div>
         <div v-else>
             <h4>Added successfully!</h4>
-            <button class="btn btn-big add" @click="newTask">CLICK HERE TO ADD NEW TASK</button>
         </div>
     </div>
 </template>
@@ -72,10 +71,6 @@ export default {
                 console.log(e);
             });
         },
-        newTask() {
-            this.submitted = false;
-            this.task = {};
-        }
     }
 };
 </script>
