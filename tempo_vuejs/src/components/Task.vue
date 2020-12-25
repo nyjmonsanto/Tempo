@@ -15,11 +15,11 @@
             </div>
             <div class="form-group">
                 <label for="duedate">Due Date</label>
-                <input type="text" class="input-box" id="duedate" v-model="currentTask.duedate"/>
+                <date-picker valueType="format" id="duedate" class="picker" v-model="currentTask.duedate"></date-picker>
             </div>
             <div class="form-group">
                 <label for="duetime">Due Time</label>
-                <input type="text" class="input-box" id="duetime" v-model="currentTask.duetime"/>
+                <vue-timepicker type="datetime" id="duetime" class="picker" v-model="currentTask.duetime" format="hh:mm A"></vue-timepicker>
             </div>
             <div class="form-group">
                 <label><strong>Status:</strong></label>
@@ -36,9 +36,14 @@
 
 <script>
 import TaskDataService from "../services/TaskDataService";
+import VueTimepicker from 'vue2-timepicker';
+import DatePicker from 'vue2-datepicker';
+import 'vue2-datepicker/index.css';
+import 'vue2-timepicker/dist/VueTimepicker.css';
 
 export default {
     name: "task",
+    components: {DatePicker, VueTimepicker},
     data() {
         return {
             currentTask: null,
@@ -103,6 +108,9 @@ export default {
 </script>
 
 <style>
+    p {
+        margin-top: 20px;
+    }
     .edit-form {
         max-width: 330px;
         margin: auto;
@@ -118,6 +126,12 @@ export default {
         color: #444;
         line-height: 1.5rem;
         font-size: 1.2em;
+        font-family: 'Oswald', serif;
+    }
+    .picker{
+        display: block;
+        color: #444;
+        line-height: 1.5rem;
         font-family: 'Oswald', serif;
     }
 </style>
