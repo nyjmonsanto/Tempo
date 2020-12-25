@@ -2,8 +2,7 @@
 
 ## Project setup
 ```
-npm install vue2-datepicker --save
-npm install vue2-timepicker --save
+npm install
 ```
 
 ### Compiles and hot-reloads for development
